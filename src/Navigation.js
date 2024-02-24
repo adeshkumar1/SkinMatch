@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 function Navigation() {
     return (
-        <div className='fbask-reg text-3xl border-b-black border-b-2'>
+        <div className='fbask-reg text-2xl border-b-black border-b-2'>
             <div className='flex justify-between'>
                 <Link to="/">
                     <div>
