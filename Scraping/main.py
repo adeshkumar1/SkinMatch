@@ -1,5 +1,2 @@
 import requests
-
-url = 'https://google.com'
-
-requests.get(url)
+from pprint import pprint
