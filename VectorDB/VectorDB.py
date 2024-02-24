@@ -1,11 +1,11 @@
 import pandas as pd
-from langchain.community import FAISS
-from langchain.embeddings import HuggingFaceBgeEmbeddings
-from langchain.llms import OpenAI
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceBgeEmbeddings
+from langchain_openai import OpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 
-df = pd.read_csv('../VectorDB/datasheet.csv')
+df = pd.read_csv('./datasheet.csv')
 
 df = df.dropna(axis=0)
 
