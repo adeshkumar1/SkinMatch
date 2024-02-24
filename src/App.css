@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: "Baskervville-italic";
+  src: url(fonts/Baskervville-Italic.ttf);
+  font-weight: italic;
+}
+
+@font-face {
+  font-family: "Baskervville-Regular";
+  src: url(fonts/Baskervville-Regular.ttf);
+  font-weight: bold;
+}
+
+.fbask-ital {
+  font-family: Baskervville-italic, 'Courier New', Courier, monospace;
+}
+
+.fbask-reg {
+  font-family: Baskervville-Regular, 'Courier New', Courier, monospace;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
