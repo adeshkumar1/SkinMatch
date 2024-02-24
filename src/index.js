@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import HeaderSection from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import './index.css';
+import HeaderSection from './Frontpage';
+import Camera from './Camera';
+import AboutUs from './AboutUs';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HeaderSection />
+    <Router>
+      <Routes>
+        <Route path="/" element={<HeaderSection />} />
+        <Route path="/camera" element={<Camera />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
