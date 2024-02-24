@@ -1,6 +1,5 @@
 import './App.css';
 // import skincareWomanImage from './skincare_woman.jpeg';
-import { Link } from 'react-router-dom';
 
 import Navigation from './Navigation';
 
