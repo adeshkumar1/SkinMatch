@@ -1,5 +1,5 @@
 import './App.css';
-// import skincareWomanImage from './skincare_woman.jpeg';
+// import skincareWomanImage from './skincare_woman.jpeg';g
 
 import Navigation from './Navigation';
 

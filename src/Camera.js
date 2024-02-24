@@ -8,12 +8,6 @@ import Navigation from './Navigation';
 function Camera() {
     const webcamRef = useRef(null);
 
-<<<<<<< HEAD
-    return (
-        <div>
-            <Navigation />
-
-=======
     const sendToBackend = () => {
 
     }
@@ -37,7 +31,6 @@ function Camera() {
             <div className='flex justify-center'>
                 <button className='p-4 fbask-reg text-3xl text-center border-2 border-black rounded-xl' onClick={captureImage}>Capture Image</button>
             </div>
->>>>>>> 25c235bd (Added camera to be added with Flask)
         </div>
     );
 }
