@@ -7,7 +7,6 @@ import os
 from openai import OpenAI
 
 def getSummary(level, skin):
-
     client = OpenAI(
         api_key = "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"
     )
@@ -28,7 +27,7 @@ def getSummary(level, skin):
             ],   
         model = "gpt-3.5-turbo", 
     )  
-    return complete.choices[0].message
+    return complete.choices[0].message.content
 
 def livefeed():
     model = YOLO(Path.cwd() / 'src/model/AcneYOLO.pt')
