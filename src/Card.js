@@ -22,7 +22,7 @@ function Card() {
           <a
             href="https://www.linkedin.com/in/anirudl/"
             target="_blank"
-            className="flex justify-between"
+            className="flex justify-between" rel="noreferrer"
           >
             <img
               src={LinkedIn}
@@ -47,7 +47,7 @@ function Card() {
           <a
             href="https://www.linkedin.com/in/neil-ganguly/"
             target="_blank"
-            className="flex justify-between"
+            className="flex justify-between" rel="noreferrer"
           >
             <img
               src={LinkedIn}
@@ -72,7 +72,7 @@ function Card() {
           <a
             href="https://www.linkedin.com/in/adesh-kumar2/"
             target="_blank"
-            className="flex justify-between"
+            className="flex justify-between" rel="noreferrer"
           >
             <img
               src={LinkedIn}
@@ -96,7 +96,7 @@ function Card() {
           <a
             href="https://www.linkedin.com/in/theodore-ng/"
             target="_blank"
-            className="flex justify-between"
+            className="flex justify-between" rel="noreferrer"
           >
             <img
               src={LinkedIn}
