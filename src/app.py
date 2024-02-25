@@ -36,13 +36,11 @@ def ProcessImages():
         data = request.get_json()
         imagePaths = data.get('paths', [])
         finalGrade, finalType = imageRatings(imagePaths)
-        print(finalGrade)
-        print("\n\n\n")
-        print(finalType)
+        print(finalGrade, finalType)
 
         return jsonify({
             "message": "Results analyzed",
-            "data": "a"
+            "data": finalGrade
         }), 200
 
     

@@ -16,6 +16,7 @@ function Camera() {
         "Please take a picture of the left side of your face",
         "Please take a picture of the right side of your face",
         "Please take a picture of your forehead",
+        "Loading Results...",
     ]
 
     const base64ToBlob = (base64, type) => {
@@ -82,7 +83,7 @@ function Camera() {
             <div className='flex justify-center my-8'>
                 <Webcam audio={false} ref={webcamRef} />
             </div>
-            <div className='fbask-reg text-xl text-center mb-8'>
+            <div className='fbask-reg text-3xl text-center mb-8'>
                 {captureGoalText[pictureCount]}
             </div>
             <div className='flex justify-center'>

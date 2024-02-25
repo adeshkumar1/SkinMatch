@@ -1,9 +1,10 @@
 import './App.css';
-// import skincareWomanImage from './skincare_woman.jpeg';g
 
 import Navigation from './Navigation';
 
 function Results() {
+
+
 
     return (
         <div>

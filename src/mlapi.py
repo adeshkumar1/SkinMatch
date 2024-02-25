@@ -59,9 +59,10 @@ def imageRatings(list_of_images):
 
     return final_grade, final_type
 
-list = [Path.cwd() / 'src/Model/IMG_1088.jpg', Path.cwd() / 'src/Model/IMG_1091.jpg', Path.cwd() / 'src/Model/IMG_1092.jpg']
+if __name__ == "__main__":
+    list = [Path.cwd() / 'src/Model/IMG_1088.jpg', Path.cwd() / 'src/Model/IMG_1091.jpg', Path.cwd() / 'src/Model/IMG_1092.jpg']
 
-final1, final2 = imageRatings(list)
+    final1, final2 = imageRatings(list)
 
-print(final1)
-print(final2)
+    print(final1)
+    print(final2)
