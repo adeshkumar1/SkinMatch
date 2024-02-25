@@ -16,10 +16,10 @@ app = Flask(__name__)
 
 CORS(app)
 
-@app.route("/process_images", methods=["GET", "POST"])
-def ProcessImages():
+@app.route("/download_images", methods=["POST"])
+def DownloadImages():
     if request.method == "POST":
-        print("Starting Processing")
+        print("Downloading Images")
         image = request.files['face-scans']
         filename = request.headers.get('Content-Disposition').split('filename=')[1][1:-1]
         image.save(os.path.join(os.path.dirname(__file__), 'face_images', filename))
@@ -29,6 +29,12 @@ def ProcessImages():
             "message": "Image processed",
             "data": faceData
         }), 200
+    
+@app.route("/process_images", methods=["POST"])
+def ProcessImages():
+    if request.method == "POST":
+        print("Processing Images")
+        
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=False)

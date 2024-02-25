@@ -38,7 +38,7 @@ function Camera() {
         formData.append("face-scans", blob, 'image.png')
 
 
-        fetch('http://localhost:8000/process_images', {
+        fetch('http://localhost:8000/download_images', {
             method: 'POST',
             headers: {
                 'Content-Disposition': `attachment; filename="${filename}"`
@@ -46,19 +46,21 @@ function Camera() {
             body: formData,
         })
         .then(response => response.json())
-        .then(data => {
-            console.log("Image processed: ", data);
-            imagePaths.push(filename);
-            setPictureCount(prevCount => {
-                const newCount = prevCount + 1;
 
-                if (newCount >= 4) {
-                    console.log()
-                    navigate('/aboutus');
-                }
+        imagePaths.push(filename);
+        setPictureCount(prevCount => {
+            const newCount = prevCount + 1;
 
-                return newCount;
-            });
+            if (newCount >= 4) {
+                console.log(imagePaths);
+                navigate('/results');
+                fetch('http://localhost:8000/process_images', {
+                    method: 'POST',
+                    body: imagePaths,
+                })
+            }
+
+            return newCount;
         });
 
     }, [webcamRef, navigate]);

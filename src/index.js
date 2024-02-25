@@ -7,6 +7,7 @@ import './index.css';
 import HeaderSection from './Frontpage';
 import Camera from './Camera';
 import AboutUs from './AboutUs';
+import Results from './Results';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,7 @@ root.render(
         <Route path="/" element={<HeaderSection />} />
         <Route path="/camera" element={<Camera />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/results" element={<Results />} />
       </Routes>
     </Router>
   </React.StrictMode>

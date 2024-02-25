@@ -9,7 +9,7 @@ function HeaderSection() {
     <div>
       <Navigation />
       <div className='mx-16 h-screen py-32'>
-        <div class="flex justify-center text-8xl mt-16 text-center fbask-reg">
+        <div class="slide-bck-center flex justify-center text-8xl mt-16 text-center fbask-reg">
           Skincare&nbsp;routine&nbsp;made&nbsp;for&nbsp;you
         </div>
         <div className='fbask-ital mb-32 text-xl text-center '>
