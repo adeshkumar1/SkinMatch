@@ -47,8 +47,8 @@ def imageRatings(list_of_images):
     type_preds = []
 
     for i in range(len(grade_probs)):
-        grade_preds.append(np.argmax(grade_probs[i].numpy()))
-        type_preds.append(np.argmax(type_probs[i].numpy()))
+        grade_preds.append(grade_probs[i].top1)
+        type_preds.append(type_probs[i].top1)
     
     final_grade = int(np.mean(grade_preds))
     type_num = int(np.mean(type_preds))
@@ -57,3 +57,10 @@ def imageRatings(list_of_images):
     final_type = labels[type_num]
 
     return final_grade, final_type
+
+list = [Path.cwd() / 'src/Model/IMG_1088.jpg', Path.cwd() / 'src/Model/IMG_1091.jpg', Path.cwd() / 'src/Model/IMG_1092.jpg']
+
+final1, final2 = imageRatings(list)
+
+print(final1)
+print(final2)
