@@ -12,16 +12,18 @@ function Navigation() {
                         </button>
                     </div>
                 </Link>
-                <Link to="/aboutus">
-                    <button className='p-4 mx-32'>
-                        About Us
-                    </button>
-                </Link>
-                <Link to="/camera">
-                    <button className='p-4 mx-32'>
-                        Camera
-                    </button>
-                </Link>
+                <div className='justify-center'>
+                    <Link to="/camera">
+                        <button className='p-4 ml-32'>
+                            Camera
+                        </button>
+                    </Link>
+                    <Link to="/aboutus">
+                        <button className='p-4 mr-32'>
+                            About Us
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
