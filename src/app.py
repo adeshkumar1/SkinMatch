@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 from dotenv import load_dotenv, find_dotenv
 import os
-import uuid
 
 from flask_cors import CORS
 
@@ -14,21 +13,17 @@ else:
     print("CANNOT CONNECT TO .env FILE")
 
 app = Flask(__name__)
+
 CORS(app)
 
 @app.route("/process_images", methods=["GET", "POST"])
 def ProcessImages():
     if request.method == "POST":
-        print('A')
+        print("Starting Processing")
         image = request.files['face-scans']
-        print(image)
-        filename = str(uuid.uuid4()) + ".png"
-        file_path = os.path.join(os.path.dirname(__file__), 'face_images', filename)
-        print(file_path)
-        image.save(file_path)
-
+        filename = request.headers.get('Content-Disposition').split('filename=')[1][1:-1]
+        image.save(os.path.join(os.path.dirname(__file__), 'face_images', filename))
         faceData = imageInModels(image)
-        print('C')
 
         return jsonify({
             "message": "Image processed",
