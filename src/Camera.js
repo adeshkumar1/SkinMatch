@@ -82,13 +82,13 @@ function Camera() {
     return (
         <div>
             <Navigation />
-            <div className='flex justify-center my-8'>
+            <div className='flex justify-center my-4'>
                 <Webcam audio={false} ref={webcamRef} />
             </div>
-            <div className='fbask-reg text-3xl text-center mb-8'>
+            <div className='fbask-reg text-3xl text-center mb-4'>
                 {captureGoalText[pictureCount]}
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center hover:scale-105 transition-transform'>
                 <button className='p-4 fbask-reg text-3xl text-center border-2 border-black rounded-xl' onClick={captureImage}>Capture Image</button>
             </div>
         </div>
