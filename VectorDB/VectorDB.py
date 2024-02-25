@@ -18,20 +18,23 @@ class DBConnection:
         self.path = Path.cwd() / 'VectorDB/testsheet.csv'
         self.MODEL = 'text-embedding-3-small'
         self.PRODUCTS = "products"
-        self.embeddings = []
         self.output = []
+        self.id = 0
 
     def createEmbeddings(self, df):
         for arr in df.values:
             res = self.client.embeddings.create(
                 input=[data for data in arr], model=self.MODEL
             )
-        self.embeddings = [record.embedding for record in res.data]
+        embeddings = [record.embedding for record in res.data]
+        return embeddings
     
-    def upsertToDB(self, df):
+    def upsertToDB(self, df, embeddings):
         meta = [{'text': [line1], 'brand': [line2], 'type': [line3], 'country': [line4], 'ingridients': [line5], 'afterUse': [line6]} for line1, line2, line3, line4, line5, line6 in zip(df['name'], df['brand'], df['type'], df['country'], df['ingridients'], df['afterUse'])]
-        ids_batch = [str(n) for n in range(df.shape[0])]
-        toupsert = zip(ids_batch, self.embeddings, meta)
+        ids_batch = [str(n + self.id) for n in range(df.shape[0])]
+        self.id += df.shape[0]
+        toupsert = zip(ids_batch, embeddings, meta)
+        print(ids_batch)
         self.index.upsert(vectors=toupsert, namespace=self.PRODUCTS)
 
     def queryToDB(self, query):
@@ -48,15 +51,30 @@ class DBConnection:
             self.output.append(arr)
         return self.output
 
+def split_dataframe_into_batches(df, batch_size):
+    """
+    Split a pandas DataFrame into batches of a specified size.
+    
+    Args:
+    - df: pandas DataFrame
+    - batch_size: int, size of each batch
+    
+    Returns:
+    - list of pandas DataFrames, each representing a batch
+    """
+    num_batches = len(df) // batch_size + (1 if len(df) % batch_size != 0 else 0)
+    return [df.iloc[i * batch_size:(i + 1) * batch_size] for i in range(num_batches)]
+
 if __name__ == "__main__":
 
-    df = pd.read_csv(Path.cwd() / 'VectorDB/testsheet.csv')#loads the csv file
+    df = pd.read_csv(Path.cwd() / 'VectorDB/datasheet.csv')#loads the csv file
     df = df.dropna(axis=0) #gets rid of any null rows with null values
 
     dbc = DBConnection() #connects to db
-    dbc.createEmbeddings(df) #uses openai to embed the data
-    dbc.upsertToDB(df) 
-    # FOR QUERY FUNCTIONS dbc.queryToDB(" A string to query ")
-
-    
-
+    x = 8540
+    while(x != df.shape[0]):
+        emb = dbc.createEmbeddings(df[x:x+20]) #uses openai to embed the data
+        dbc.upsertToDB(df[x:x+20], emb)
+        x += 20
+        print("finish")
+    # print(dbc.queryToDB("I have oily skin, what products would you reccomend?"))
