@@ -53,8 +53,15 @@ class DBConnection:
 
 if __name__ == "__main__":
 
-    df = pd.read_csv(Path.cwd() / 'VectorDB/datasheet.csv')#loads the csv file
+    df = pd.read_csv(Path.cwd() / 'VectorDB/testsheet.csv')#loads the csv file
     df = df.dropna(axis=0) #gets rid of any null rows with null values
+
+    dbc = DBConnection() #connects to db
+    dbc.createEmbeddings(df) #uses openai to embed the data
+    dbc.upsertToDB(df) 
+    # FOR QUERY FUNCTIONS dbc.queryToDB(" A string to query ")
+
+    
 
     dbc = DBConnection() #connects to db
     x = 8540
