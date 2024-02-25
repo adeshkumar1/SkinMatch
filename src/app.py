@@ -23,18 +23,28 @@ def DownloadImages():
         image = request.files['face-scans']
         filename = request.headers.get('Content-Disposition').split('filename=')[1][1:-1]
         image.save(os.path.join(os.path.dirname(__file__), 'face_images', filename))
-        faceData = imageInModels(image)
+        # faceData = imageInModels(image)
 
         return jsonify({
-            "message": "Image processed",
-            "data": faceData
+            "message": "Image Saved",
         }), 200
     
-@app.route("/process_images", methods=["POST"])
+@app.route("/process_images", methods=["GET", "POST"])
 def ProcessImages():
     if request.method == "POST":
         print("Processing Images")
-        
+        data = request.get_json()
+        imagePaths = data.get('paths', [])
+        finalGrade, finalType = imageRatings(imagePaths)
+        print(finalGrade)
+        print("\n\n\n")
+        print(finalType)
+
+        return jsonify({
+            "message": "Results analyzed",
+            "data": "a"
+        }), 200
+
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=False)

@@ -3,6 +3,7 @@ from pathlib import Path
 import cv2
 from PIL import Image
 import numpy as np
+import os
 
 def livefeed():
     model = YOLO(Path.cwd() / 'src/model/AcneYOLO.pt')
@@ -29,7 +30,7 @@ def livefeed():
 def faceRating(model, image):
     model = YOLO(model)
 
-    image = Image.open(image)
+    image = Image.open(os.path.join(os.path.dirname(__file__), "face_images" , image))
     new_image = image.resize((640, 640))
     results = model(new_image)
     probs = results[0].probs

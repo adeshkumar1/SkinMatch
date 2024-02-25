@@ -15,7 +15,7 @@ function Camera() {
         "Please take a picture of your face in a front facing angle",
         "Please take a picture of the left side of your face",
         "Please take a picture of the right side of your face",
-        "Please takae a picture of your forehead",
+        "Please take a picture of your forehead",
     ]
 
     const base64ToBlob = (base64, type) => {
@@ -53,10 +53,21 @@ function Camera() {
 
             if (newCount >= 4) {
                 console.log(imagePaths);
-                navigate('/results');
                 fetch('http://localhost:8000/process_images', {
                     method: 'POST',
-                    body: imagePaths,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        paths: imagePaths,
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    navigate('/results');
+                })
+                .catch(error => {
+                    console.error('Error processing images:', error);
                 })
             }
 
