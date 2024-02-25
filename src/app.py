@@ -37,6 +37,14 @@ def ProcessImages():
         imagePaths = data.get('paths', [])
         finalGrade, finalType = imageRatings(imagePaths)
         summary = getSummary(finalGrade, finalType)
+        toQueryDB =  f"This person has level {str(finalGrade + 1)}  acne and {finalType} skin."
+        dbc = DBConnection()
+        products = dbc.queryToDB(toQueryDB)
+        for product in products:
+            product[3] = product[3].split(",")
+            product[3] = ", ".join(product[3])
+            product[4] = product[4].split(",")
+            product[4] = ",  ".join(product[4])
 
         return jsonify({
             "message": "Results analyzed",
@@ -44,6 +52,7 @@ def ProcessImages():
             "grade": finalGrade,
             "type": finalType,
             "summary": summary,
+            "products": products,
         }), 200
 
     

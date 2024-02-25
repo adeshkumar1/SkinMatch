@@ -51,7 +51,7 @@ function HeaderSection() {
       </div>
 
       <div className="flex flex-row mx-auto">
-        <div className="mx-16 h-2/4 py-40 ml-40">
+        <div className="mx-16 h-2/4 pt-40 pb-20 ml-40">
           <div class="slide-bck-left flex justify-left text-2xl mt-7  text-left fbask-reg">
             <img
               src={skincareproducts1}
@@ -74,17 +74,8 @@ function HeaderSection() {
       </div>
 
       <div className="flex justify-center">
-        <div className="py-36 text-center ">
-          <div className="slide-bck-center text-7xl mt-1 fbask-reg puff-in-center">
-            Functionality
-          </div>
-          <div className="fbask-ital mb-4 text-2xl">Simplify skincare...</div>
-        </div>
-      </div>
-
-      <div className="flex justify-center">
-        <div className="pt-24 pb-36 text-center ">
-          <div className="slide-bck-center text-7xl mt-1 fbask-reg puff-in-center">
+        <div className="pt-16 pb-36 text-center ">
+          <div className="slide-bck-center text-7xl my-4 fbask-reg puff-in-center">
             How we do it...
           </div>
           <div className="fbask-reg mb-4 text-2xl mx-64">
