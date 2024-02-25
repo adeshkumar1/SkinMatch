@@ -1,4 +1,6 @@
 import './App.css';
+
+import { useEffect } from 'react';
 import Navigation from './Navigation';
 import ImageList from './ImageList';
 
@@ -12,10 +14,24 @@ function Results() {
     let pathImages = processingResults['paths'];
     let summary = processingResults['summary'];
 
-    const [imagePaths, setImagePaths] = useState(pathImages);
-
-    console.log(pathImages);
-    console.log(summary);
+    useEffect(() => {
+        // Perform a GET request to fetch the processed results
+        fetch('http://localhost:8000/process_images', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the data received from the server
+            console.log('Results:', data);
+            // You can update your component state or take other actions based on the data
+        })
+        .catch(error => {
+            console.error('Error fetching results:', error);
+        });
+    }, []);
 
     return (
         <div>
