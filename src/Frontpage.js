@@ -5,6 +5,7 @@ import Navigation from './Navigation';
 import skincareproducts1 from './skincare_products5.webp';
 import skincareproducts2 from './skincare_products4.webp';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 function HeaderSection() {
   return (  
@@ -66,40 +67,21 @@ function HeaderSection() {
 
 
       <div className='flex justify-center'>
-        <div className='py-36 text-center '>
+        <div className='pt-24 pb-36 text-center '>
           <div className="slide-bck-center text-7xl mt-1 fbask-reg puff-in-center">
-            Functionality
+            How we do it...
           </div>
-          <div className='fbask-ital mb-4 text-2xl'>
-            Simplify skincare...
+          <div className='fbask-reg mb-4 text-2xl mx-64'>
+            We trained state of the art YOLOV8 models to detect acne and other skin conditions. Our computer vision technology
+             can detect size and severity of acne and can classify oily or dry skin. You deserve the best, so try us for free today.
           </div>
+          <Link to="/camera">
+            <button className='fbask-reg mt-8 text-2xl border-black border-2 rounded-xl p-5 hover:scale-110 transition-transform'>
+                Camera
+            </button>
+          </Link>
         </div>
       </div>
-
-
-      {/* mx-16 h-2/4 py-40 w-1/3 ml-40
-      <div className='text-center'>
-        <img src={skincareWomanImage} alt='skincare woman' className='mx-auto w-full max-w-xl'></img>
-      </div> 
-
-      <div className='flex align-auto justify-between'>
-        <div className='fbask-reg text-3xl py-4'>
-          Figure out your skin issues
-        </div>
-        <Link to="/camera">
-          <button className='p-4 mx-32 border-2 border-black rounded-xl'>
-            Camera  
-          </button>
-        </Link>
-      </div>
-
-
-
-      Our innovative platform empowers you to take control of your skincare journey by helping you find the perfect products tailored to your unique skin needs.
-          Gone are the days of endless searching and guessing which skincare products will work for you. With SkinMatch, you can say goodbye to trial and error. Our advanced technology analyzes your skin and recommends the most suitable products with precision and accuracy.
-    */}
-
-
       
     </div>
   );
