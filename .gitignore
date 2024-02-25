@@ -130,3 +130,5 @@ dist
 .pnp.*
 .env
 .DS_Store
+
+face_images/
