@@ -10,6 +10,7 @@ function Camera() {
     const webcamRef = useRef(null);
     const [pictureCount, setPictureCount] = useState(0);
     const navigate = useNavigate();
+    const [processingData, setProcessingData] = useState(null);
 
     let captureGoalText = [
         "Please take a picture of your face in a front facing angle",
@@ -65,7 +66,8 @@ function Camera() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    navigate('/results');
+                    setProcessingData(data);
+                    navigate('/results', { state: { processingResults: data } });
                 })
                 .catch(error => {
                     console.error('Error processing images:', error);
