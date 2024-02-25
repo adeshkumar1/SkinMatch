@@ -1,4 +1,4 @@
-import "./App.css";
+import './App.css';
 // import skincareWomanImage from './skincare_woman.jpeg';
 
 import Navigation from "./Navigation";
