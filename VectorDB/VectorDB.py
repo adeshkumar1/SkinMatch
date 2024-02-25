@@ -51,20 +51,6 @@ class DBConnection:
             self.output.append(arr)
         return self.output
 
-def split_dataframe_into_batches(df, batch_size):
-    """
-    Split a pandas DataFrame into batches of a specified size.
-    
-    Args:
-    - df: pandas DataFrame
-    - batch_size: int, size of each batch
-    
-    Returns:
-    - list of pandas DataFrames, each representing a batch
-    """
-    num_batches = len(df) // batch_size + (1 if len(df) % batch_size != 0 else 0)
-    return [df.iloc[i * batch_size:(i + 1) * batch_size] for i in range(num_batches)]
-
 if __name__ == "__main__":
 
     df = pd.read_csv(Path.cwd() / 'VectorDB/datasheet.csv')#loads the csv file
