@@ -11,9 +11,9 @@ class DBConnection:
     def __init__(self):
         
         self.client = OpenAI(
-            api_key= os.getenv("OPENAI_KEY")
+            api_key= os.getenv('OPENAI_KEY')
         )
-        self.pc = Pinecone(api_key='b7fdfedc-9382-4981-b6ce-8630eede3eaf')
+        self.pc = Pinecone(api_key='PINE_KEY')
         self.index = self.pc.Index("skinmatch")
         self.path = Path.cwd() / 'VectorDB/testsheet.csv'
         self.MODEL = 'text-embedding-3-small'
