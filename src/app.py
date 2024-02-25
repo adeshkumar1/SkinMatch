@@ -23,7 +23,6 @@ def DownloadImages():
         image = request.files['face-scans']
         filename = request.headers.get('Content-Disposition').split('filename=')[1][1:-1]
         image.save(os.path.join(os.path.dirname(__file__), 'face_images', filename))
-        # faceData = imageInModels(image)
 
         return jsonify({
             "message": "Image Saved",
