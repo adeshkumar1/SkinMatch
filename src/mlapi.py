@@ -3,12 +3,15 @@ from pathlib import Path
 import cv2
 from PIL import Image
 import numpy as np
-import os
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def getSummary(level, skin):
     client = OpenAI(
-        api_key = "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"
+        api_key = os.getenv('OPENAI_KEY')
     )
     complete = client.chat.completions.create(
         messages = [
