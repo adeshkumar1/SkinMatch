@@ -10,7 +10,7 @@ function Card() {
     <div className="w-3/4 mx-auto grid grid-cols-4 gap-16 mt-16">
       <div className="text-center">
         <img
-          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-105"
+          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
           src={Anirud}
           alt="Programmer Anirud"
         ></img>
@@ -26,7 +26,7 @@ function Card() {
           >
             <img
               src={LinkedIn}
-              className="mx-auto mt-2 aspect-w-1 aspect-h-1 transform hover:scale-110"
+              className="mx-auto mt-2 aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
               alt=""
             ></img>
           </a>
@@ -34,7 +34,7 @@ function Card() {
       </div>
       <div className="text-center">
         <img
-          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-105"
+          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
           src={Neil}
           alt="Programmer Neil"
         ></img>
@@ -59,7 +59,7 @@ function Card() {
       </div>
       <div className="text-center">
         <img
-          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-105"
+          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
           src={Adesh}
           alt="Programmer Adesh"
         ></img>
@@ -76,7 +76,7 @@ function Card() {
           >
             <img
               src={LinkedIn}
-              className="mx-auto mt-2 aspect-w-1 aspect-h-1 transform hover:scale-110"
+              className="mx-auto mt-2 aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
               alt=""
             ></img>
           </a>
@@ -84,7 +84,7 @@ function Card() {
       </div>
       <div className="text-center">
         <img
-          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-105"
+          className="rounded-full aspect-w-1 aspect-h-1 transform hover:scale-110 transition-transform"
           src={Theo}
           alt="Programmer Theodore"
         ></img>
